@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Begin Javascript
 
 
@@ -42,3 +43,6 @@ $("#submit").click(function(){
 
 
 
+=======
+// Begin Javascript
+>>>>>>> 26bb7b1286d4800d35349be57da24cb38fe3d006
