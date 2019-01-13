@@ -6,8 +6,7 @@ $(document).ready(function() {
 
 var questionCounter = 0;
 var score = 0;
-var correctGuess = 0;
-var IncorrectGuess = 0;
+
 
 var quiz = [{
     question: "Which Seinfeld writer voiced George Steinbrenner on and off from season 5 through 9?",
@@ -27,18 +26,15 @@ var quiz = [{
     answer: 2 },
 ];
 
-// //function with loop to create question contents
 
-// function questionContent(quiz) {
-//     for (i = 0; i < 5; i++){
-//         $("gameScreen").append(quiz[i].question)
-//     }
-// };
-// console.log(quiz)
+
+  
 
 $("#start").click(function() {
-
+    alert("Hello World");
+        
 }); 
+
 
 $(quiz).each(function(i,e){
     // $.forEach(quiz, function(i, e) {
