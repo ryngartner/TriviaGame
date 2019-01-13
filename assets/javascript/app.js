@@ -4,10 +4,10 @@
 $(document).ready(function() {
 
 
-
-var score = 0
-var correctGuess = 0
-var IncorrectGuess = 0
+var questionCounter = 0;
+var score = 0;
+var correctGuess = 0;
+var IncorrectGuess = 0;
 
 var quiz = [{
     question: "Which Seinfeld writer voiced George Steinbrenner on and off from season 5 through 9?",
@@ -27,32 +27,25 @@ var quiz = [{
     answer: 2 },
 ];
 
-// // create question contents according to question count
-// function questionContent() {
-//     // a for loop would be cool here...
-//     $("#gameScreen").append("<p><strong>" + 
-//         questions[questionCounter].question + 
-//         "</p><p class='choices'>" + 
-//         questions[questionCounter].choices[0] + 
-//         "</p><p class='choices'>" + 
-//         questions[questionCounter].choices[1] + 
-//         "</p><p class='choices'>" + 
-//         questions[questionCounter].choices[2] + 
-//         "</p><p class='choices'>" + 
-//         questions[questionCounter].choices[3] + 
-//         "</strong></p>");
-// }
 
-var questionNumber;
-// $(quiz).each(function(i,e){
-    $.each(quiz, function(i, e) {
-    // console.log( i + " : " + e);
-    questionNumber = e;
-    // console.log(e)
-    // console.log(i)
-for(i = 0; i < 3; i++){
-    $("#possibleAnswers").append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (e)+'>' + (e.panswer[i]) + '</label>')
-}});
+
+function questionContent(quiz) {
+    for (i = 0; i < 5; i++){
+        $("gameScreen").append("<p><strong>" + quiz[i].question + "</p><p class='choices'>")
+    }
+};
+console.log(quiz)
+
+
+// // $(quiz).each(function(i,e){
+//     $.each(quiz, function(i, e) {
+//     // console.log( i + " : " + e);
+//     questionNumber = e;
+//     // console.log(e)
+//     // console.log(i)
+// for(i = 0; i < 3; i++){
+//     $("#possibleAnswers").append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (e)+'>' + (e.panswer[i]) + '</label>')
+// }});
 
 $("#submit").click(function(){
     var radioValue = $("input[name='optradio']:checked").val();
