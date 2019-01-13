@@ -36,7 +36,9 @@ var quiz = [{
 // };
 // console.log(quiz)
 
+$("#start").click(function() {
 
+}); 
 
 $(quiz).each(function(i,e){
     // $.forEach(quiz, function(i, e) {
@@ -47,8 +49,9 @@ $(quiz).each(function(i,e){
     // console.log(e)
     // console.log(i)
 for(i = 0; i < quiz[questionNumber].panswer.length; i++){
-    $("#q"+ questionNumber).append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (i)+'>' + (e.panswer[i]) + '</label>')
+    $("#q"+ questionNumber).append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value = ' + (i)+ '>' + (e.panswer[i]) + '</label>')
 }});
+
 
 $("#submit").click(function(){
     for (var i = 0; i < quiz.length; i++) {
@@ -62,8 +65,6 @@ $("#submit").click(function(){
    
     
 });
-
-
 
 });
 
