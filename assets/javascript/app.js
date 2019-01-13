@@ -38,15 +38,17 @@ var quiz = [{
 
 
 
-// $(quiz).each(function(i,e){
-    $.each(quiz, function(i, e) {
-    // console.log( i + " : " + e);
-    questionNumber = e;
+$(quiz).each(function(i,e){
+    // $.forEach(quiz, function(i, e) {
+    console.log( i + " : " + e);
+    questionNumber = i;
+    
+    $("#question").append("<p id = q" + i + ">" + e.question + "</p>");
     // console.log(e)
     // console.log(i)
-for(i = 0; i < 3; i++){
-    $("#possibleAnswers").append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (i)+'>' + (e.question[i]) + '</label>')
-    $("#results").append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (e)+'>' + (e.panswer[i]) + '</label>')
+for(i = 0; i < quiz[questionNumber].panswer.length; i++){
+    // $("#possibleAnswers").append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (i)+'>' + (e.question[i]) + '</label>')
+    $("#q"+ questionNumber).append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (e)+'>' + (e.panswer[i]) + '</label>')
 }});
 
 $("#submit").click(function(){
