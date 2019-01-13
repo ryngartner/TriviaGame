@@ -40,7 +40,7 @@ $("#start").click(function() {
         clearInterval(downloadTimer);
     },1000);
         
-}); 
+ 
 
 
 $(quiz).each(function(i,e){
@@ -71,6 +71,6 @@ $("#submit").click(function(){
 
 });
 
-
+});
 
 
