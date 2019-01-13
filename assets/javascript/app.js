@@ -1,29 +1,40 @@
-<<<<<<< HEAD
 // Begin Javascript
 
 
-// $("#start").click(function(){
-//     alert("Yay!");
-// })
+$(document).ready(function() {
+
+
 
 var score = 0
 
 var quiz = [{
-    question: "Kramer kramer kramer",
-    panswer: ["Newman","Jerry","Elaine"],
+    question: "Which Seinfeld writer voiced George Steinbrenner on and off from season 5 through 9?",
+    panswer: ["Larry David", "Spike Feresten" , "Peter Mehlmen"],
     answer: 1 },
-{question: "Jerry Jerry Jerry",
-panswer: ["Soup Nazi","Jerry","Elaine"],
-answer: 0 }
-]
+{   question: "In season six’s “The Doorman,” Frank Costanza wants to name the chest-support garment he and Kramer invent 'the Manssiere,' but Kramer prefers…",
+    panswer: ["The Breast Man", "The Bro" , "Man's Best Friend"],
+    answer: 1 },
+{   question: "The Tao of Jerry: Newman is the _________ to his Superman.",
+    panswer: ["Kryptonite", "Lois Lane", "Alf", "Lex Luther"],
+    answer: 3 },
+{   question: "In later seasons, Kramer frequently sought the counsel of an excitable attorney who parodied which member of O.J. Simpson’s defense team?",
+    panswer: ["Robert Kardashian", "Alan Dershowitz", "F.Lee Bailey", "Johnnie Cochran"],
+    answer: 3 },
+{   question: "Elaine has many talents, including copyediting and recreational skiing. But, as we learn in season eight’s “The Little Kicks,” this skill is not one of them.",
+    panswer: ["singing", "cooking", "dancing", "soccer"],
+    answer: 2 },
+];
+
 var questionNumber;
-$(quiz).each(function(i,e){
-    questionNumber=i;
+// $(quiz).each(function(i,e){
+    $.each(quiz, function(i, e) {
+    console.log( i + " : " + e);
+    questionNumber = e;
     console.log(e)
     console.log(i)
-for(i = 0;i < 4;i++){
-    $("#possibleAnswers").append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (i)+'>' + (e.panswer[i]) + '</label>')
-}})
+for(i = 0; i < 3; i++){
+    $("#possibleAnswers").append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (e)+'>' + (e.panswer[i]) + '</label>')
+}});
 
 $("#submit").click(function(){
     var radioValue = $("input[name='optradio']:checked").val();
@@ -32,17 +43,15 @@ $("#submit").click(function(){
         score ++;
     }
     else {
-        console.log("Incorrect");
+        // console.log("Incorrect");
     }
     $("#results").text(score);
-})
+});
+
+
+
+});
 
 
 
 
-
-
-
-=======
-// Begin Javascript
->>>>>>> 26bb7b1286d4800d35349be57da24cb38fe3d006
