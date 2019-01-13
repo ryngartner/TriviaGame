@@ -27,25 +27,27 @@ var quiz = [{
     answer: 2 },
 ];
 
+// //function with loop to create question contents
+
+// function questionContent(quiz) {
+//     for (i = 0; i < 5; i++){
+//         $("gameScreen").append(quiz[i].question)
+//     }
+// };
+// console.log(quiz)
 
 
-function questionContent(quiz) {
-    for (i = 0; i < 5; i++){
-        $("gameScreen").append("<p><strong>" + quiz[i].question + "</p><p class='choices'>")
-    }
-};
-console.log(quiz)
 
-
-// // $(quiz).each(function(i,e){
-//     $.each(quiz, function(i, e) {
-//     // console.log( i + " : " + e);
-//     questionNumber = e;
-//     // console.log(e)
-//     // console.log(i)
-// for(i = 0; i < 3; i++){
-//     $("#possibleAnswers").append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (e)+'>' + (e.panswer[i]) + '</label>')
-// }});
+// $(quiz).each(function(i,e){
+    $.each(quiz, function(i, e) {
+    // console.log( i + " : " + e);
+    questionNumber = e;
+    // console.log(e)
+    // console.log(i)
+for(i = 0; i < 3; i++){
+    $("#possibleAnswers").append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (i)+'>' + (e.question[i]) + '</label>')
+    $("#results").append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (e)+'>' + (e.panswer[i]) + '</label>')
+}});
 
 $("#submit").click(function(){
     var radioValue = $("input[name='optradio']:checked").val();
