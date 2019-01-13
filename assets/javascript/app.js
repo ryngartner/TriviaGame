@@ -12,7 +12,7 @@ var IncorrectGuess = 0;
 var quiz = [{
     question: "Which Seinfeld writer voiced George Steinbrenner on and off from season 5 through 9?",
     panswer: ["Larry David", "Spike Feresten" , "Peter Mehlmen"],
-    answer: 1 },
+    answer: 0 },
 {   question: "In season six’s “The Doorman,” Frank Costanza wants to name the chest-support garment he and Kramer invent 'the Manssiere,' but Kramer prefers…",
     panswer: ["The Breast Man", "The Bro" , "Man's Best Friend"],
     answer: 1 },
@@ -47,20 +47,20 @@ $(quiz).each(function(i,e){
     // console.log(e)
     // console.log(i)
 for(i = 0; i < quiz[questionNumber].panswer.length; i++){
-    // $("#possibleAnswers").append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (i)+'>' + (e.question[i]) + '</label>')
-    $("#q"+ questionNumber).append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (e)+'>' + (e.panswer[i]) + '</label>')
+    $("#q"+ questionNumber).append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value =' + (i)+'>' + (e.panswer[i]) + '</label>')
 }});
 
 $("#submit").click(function(){
-    var radioValue = $("input[name='optradio']:checked").val();
+    for (var i = 0; i < quiz.length; i++) {
+        if (parseInt($("input[name='optradio" + i + "']:checked").val()) === quiz[i].answer){
+            score ++;
+        }
+        $("#results").text(score);
+        $("#submit").css("display","none");
+    }
+    
    
-    if (parseInt(radioValue) === quiz[0].answer){
-        score ++;
-    }
-    else {
-        // console.log("Incorrect");
-    }
-    $("#results").text(score);
+    
 });
 
 
