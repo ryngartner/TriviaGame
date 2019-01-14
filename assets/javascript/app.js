@@ -39,6 +39,7 @@ $("#start").click(function() {
     if(timeleft <= 0)
         clearInterval(downloadTimer);
     },1000);
+    $("#start").css("display","none");
         
  
 
@@ -47,7 +48,7 @@ $(quiz).each(function(i,e){
     // $.forEach(quiz, function(i, e) {
     console.log( i + " : " + e);
     questionNumber = i;
-    
+ 
     $("#question").append("<p id = q" + i + ">" + e.question + "</p>");
     // console.log(e)
     // console.log(i)
