@@ -6,7 +6,8 @@ $(document).ready(function() {
 
 var questionCounter = 0;
 var score = 0;
-
+var questionCounter;
+var timeleft;
 
 var quiz = [{
     question: "Which Seinfeld writer voiced George Steinbrenner on and off from season 5 through 9?",
@@ -32,7 +33,7 @@ var quiz = [{
 
 $("#start").click(function() {
     // alert("Hello World");
-    var timeleft = 30;
+    timeleft = 30;
     var downloadTimer = setInterval(function(){
     timeleft--;
     document.getElementById("countdowntimer").textContent = timeleft;
@@ -40,11 +41,12 @@ $("#start").click(function() {
         clearInterval(downloadTimer);
     },1000);
     $("#start").css("display","none");
+    $("#submit").css("display","block");
         
  
 
 
-$(quiz).each(function(i,e){
+quiz.forEach(function(e,i){
     // $.forEach(quiz, function(i, e) {
     console.log( i + " : " + e);
     questionNumber = i;
@@ -52,9 +54,10 @@ $(quiz).each(function(i,e){
     $("#question").append("<p id = q" + i + ">" + e.question + "</p>");
     // console.log(e)
     // console.log(i)
-for(i = 0; i < quiz[questionNumber].panswer.length; i++){
-    $("#q"+ questionNumber).append('<label class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value = ' + (i)+ '>' + (e.panswer[i]) + '</label>')
+for(j = 0; j < quiz[questionNumber].panswer.length; j++){
+    $("#q"+ questionNumber).append('<label style = "margin-left: 5px" class="radio-inline"><input type="radio" name="optradio' + questionNumber + '" value = ' + (j)+ '>' + (e.panswer[j]) + '</label>')
 }});
+
 
 
 $("#submit").click(function(){
@@ -65,13 +68,24 @@ $("#submit").click(function(){
         $("#results").text(score);
         $("#submit").css("display","none");
     }
-    
-   
+    clearInterval(downloadTimer);
+   startFunction();
     
 });
 
 });
-
+function startFunction() {
+    //show start button
+    //reset the timer back to 30 seconds
+    //clear selected radio buttons
+    $("#start").css("display","block");
+    timeleft = 30;
+    document.getElementById("countdowntimer").textContent = timeleft;
+    $("input").prop('checked', false);
+    $("#question").empty();
+    $("#q0").remove();
+    
+}
 });
 
 
